@@ -5,7 +5,7 @@
 
 int nth_prime(int n) {
     if (n <= 0) {
-        return NULL;
+        return 0;
     }
     int *primes = (int*)malloc(n * sizeof(int));
     primes[0] = 2;
@@ -35,12 +35,13 @@ int nth_prime(int n) {
 }
 
 int main() {
+    int repetitions = 20;
     clock_t start_time, end_time;
     double min_time = 500;
     double elapsed_time;
-    double times[20];
-    int results[20];
-    for (int i = 0; i < 20; i++) {
+    double times[repetitions];
+    int results[repetitions];
+    for (int i = 0; i < repetitions; i++) {
         start_time = clock();
         results[i] = nth_prime(50000);
         end_time = clock();
@@ -51,11 +52,11 @@ int main() {
         }
     }
     printf("[");
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < repetitions; i++) {
         printf("%.6f, ", times[i]);
     }
     printf("]\n[");
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < repetitions; i++) {
         printf("%d, ", results[i]);
     }
     printf("]\nMinimum: %.6f s.\n", min_time);
