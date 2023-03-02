@@ -27,7 +27,7 @@ class Program
             }
             num += 2;
         }
-        return primes[^1];
+        return primes[primes.Count - 1];
     }
 
     static void Main(string[] args)
