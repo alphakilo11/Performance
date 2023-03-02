@@ -1,0 +1,41 @@
+using System;
+using System.Diagnostics;
+
+class Program
+{
+    static int NthPrime(int n)
+    {
+        if (n <= 0) {
+            return -1;
+        }
+        var primes = new System.Collections.Generic.List<int> { 2 };
+        int num = 3;
+        while (primes.Count < n) {
+            bool isPrime = true;
+            int sqrtNum = (int)Math.Sqrt(num) + 1;
+            foreach (int p in primes) {
+                if (p > sqrtNum) {
+                    break;
+                }
+                if (num % p == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                primes.Add(num);
+            }
+            num += 2;
+        }
+        return primes[^1];
+    }
+
+    static void Main(string[] args)
+    {
+        var sw = Stopwatch.StartNew();
+        for (int i = 0; i < 10; i++) {
+            Console.WriteLine(NthPrime(50000));
+        }
+        Console.WriteLine($"Duration: {sw.ElapsedMilliseconds} ms");
+    }
+}
