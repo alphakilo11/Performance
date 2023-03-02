@@ -1,0 +1,23 @@
+let nth_prime n =
+  let rec is_prime p =
+    match p with
+    | 2 -> true
+    | n -> let sqrt_n = int_of_float(sqrt (float_of_int n)) + 1 in
+           let rec divisors d =
+             match d with
+             | 1 -> true
+             | d -> if n mod d = 0 then false else divisors (d - 1) in
+           divisors sqrt_n in
+  let rec primes acc i =
+    match i with
+    | x when List.length acc = n -> List.hd (List.rev acc)
+    | x when is_prime x -> primes (x::acc) (i+2)
+    | x -> primes acc (i+2) in
+  primes [2] 3;;
+
+let start_time = Unix.gettimeofday ();;
+for i = 0 to 9 do
+  print_int (nth_prime 50000);
+  print_newline ();
+done;;
+Printf.printf "Dauer: %f\n" (Unix.gettimeofday () -. start_time);;
