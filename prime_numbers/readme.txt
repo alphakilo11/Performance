@@ -1,4 +1,4 @@
-Convert the following Python code to each of these languages: (Cobol, R, Fortran, Haskell, Assembly(GCC), Objective C, SQLite, Javascript(Rhino), Prolog, Swift, Rust, Go, Bash)
+Convert the following Python code to each of these languages: (Fortran, Haskell, Assembly(GCC), Objective C, SQLite, Javascript(Rhino), Prolog, Swift, Rust, Go, Bash)
 from timeit import default_timer as timer
 
 def nth_prime(n):
