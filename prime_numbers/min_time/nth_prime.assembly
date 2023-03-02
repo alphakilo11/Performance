@@ -1,0 +1,84 @@
+section .data
+
+primes: dd 2      ; first prime number
+num: dd 3         ; number to be checked for primality
+is_prime: dd 1   ; flag for primality
+sqrt_num: dd 0   ; square root of num
+
+section .text
+
+global nth_prime
+
+; nth_prime(n)
+; expects: eax = n
+; returns: eax = nth prime number
+nth_prime:
+    push ebp
+    mov ebp, esp
+
+    ; Check if n is less than or equal to zero
+    cmp eax, 0
+    jle return_none
+
+    ; Initialize variables
+    mov dword [primes], 2
+    mov dword [num], 3
+
+    ; Loop until n primes are found
+    mov ecx, eax
+    dec ecx
+    jmp check_prime
+
+prime_found:
+    inc dword [num]
+    check_prime:
+        ; Check if num is prime
+        mov dword [is_prime], 1
+        mov eax, dword [num]
+        mov edx, 0
+        mov ebx, 2
+        div ebx
+        cmp eax, 0
+        je not_prime
+
+        mov dword [sqrt_num], 1
+        fld dword [num]
+        fsqrt
+        fstp dword [sqrt_num]
+        mov eax, dword [primes]
+        cmp eax, dword [sqrt_num]
+        jg prime_found
+
+        ; Check if num is divisible by primes
+        mov ebx, dword [primes]
+        check_divisible:
+            mov eax, dword [num]
+            mov edx, 0
+            div ebx
+            cmp eax, 0
+            je not_prime
+            add ebx, 1
+            mov eax, dword [sqrt_num]
+            cmp eax, ebx
+            jg check_divisible
+
+        ; Add num to primes list
+        mov eax, dword [num]
+        mov dword [primes + 4 * ecx], eax
+        dec ecx
+
+        not_prime:
+            cmp ecx, 0
+            jg prime_found
+
+    ; Return nth prime number
+    mov eax, dword [primes]
+    jmp cleanup
+
+return_none:
+    xor eax, eax
+
+
+cleanup:
+    pop ebp
+    ret
