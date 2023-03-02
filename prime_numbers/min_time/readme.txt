@@ -1,3 +1,9 @@
+The timings vary greatly between runs (it seems that the virtual machines available as free online compilers are completely useless to benchmark anything)
+(2.24, 2.03, 2.233262948997435) #s Python
+(0.028105974197387695, 0.014826059341430664, 0.01475977897644043) #s Julia
+
+
+
 Convert the following Python code to each of these languages: (C, C#, C++, Java, Perl, Ruby, Cobol, Kotlin, Ocaml, Pascal, PHP, R, VB, Fortran, Haskell, Assembly(GCC), Objective C, SQLite, Javascript(Rhino), Prolog, Swift, Rust, Go, Bash)
 
 from timeit import default_timer as timer
