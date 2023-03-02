@@ -1,0 +1,33 @@
+import kotlin.system.measureTimeMillis
+
+fun nthPrime(n: Int): Int? {
+    if (n <= 0) {
+        return null
+    }
+    val primes = mutableListOf(2)
+    var num = 3
+    while (primes.size < n) {
+        var isPrime = true
+        val sqrtNum = (num.toDouble() ** 0.5 + 1).toInt()
+        for (p in primes) {
+            if (p > sqrtNum) {
+                break
+            }
+            if (num % p == 0) {
+                isPrime = false
+                break
+            }
+        }
+        if (isPrime) {
+            primes.add(num)
+        }
+        num += 2
+    }
+    return primes.last()
+}
+
+val start = System.currentTimeMillis()
+for (i in 0 until 10) {
+    println(nthPrime(50000))
+}
+println("Duration: ${System.currentTimeMillis() - start}")
