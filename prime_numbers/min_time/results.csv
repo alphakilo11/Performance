@@ -2,7 +2,7 @@ Language;min time in s out of 20 runs;run on;date;remarks
 Assembly;;https://godbolt.org/;20230302;I was not able to get a CLI printout 
 C;0.034804;https://www.onlinegdb.com/;20230302;
 C#;2.5746004;https://www.onlinegdb.com/;20230302;seems to be very slow
-C++;DNF;;;
+C++;0.119979;https://www.onlinegdb.com/;20230302;
 Go;0.090810157;https://www.onlinegdb.com/;20230302;
 Haskell;DNF;;;
 Java;0.039;https://www.onlinegdb.com/;20230302;
@@ -11,8 +11,10 @@ Javascript;0.722;;https://www.onlinegdb.com/;20230302;
 Julia;0.018127918243408203;https://replit.com/languages/julia;20230302
 Kotlin;0.779950797;https://www.onlinegdb.com/;20230302;
 Perl;0.42157;https://www.onlinegdb.com/;20230302;
-PHP;0.10268902778625;https://www.onlinegdb.com/;20230302;
+PHP;0.22878694534302;https://www.onlinegdb.com/;20230302;
 Python;0.5322099630011508;https://www.onlinegdb.com/;20230302;
 R;3.452356;https://www.onlinegdb.com/;20230302;seems to be very slow
 Ruby;0.5347772549999945;https://www.onlinegdb.com/;20230302;
 Rust;0.225188221;https://www.onlinegdb.com/;20230302;
+Swift;0.3618030548095703;https://www.onlinegdb.com/;20230303;
+Typescript;0.025;https://replit.com;20230303;
