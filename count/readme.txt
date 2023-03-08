@@ -6,3 +6,4 @@ count/s;function;date;platform;remarks
 1.862024956248853e+07;iteration_addition.py;20230308;Google Colab;
 1.505216787867965e+07;iteration_counter.py;20230308;Google Colab;
 1.142564202450632e+07;iteration_timer.py;20230308;Google Colab;
+8.706094490752108e+06;iteration_sqrt.py;20230308;Google Colab;
